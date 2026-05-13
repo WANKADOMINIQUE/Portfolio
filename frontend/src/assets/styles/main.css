@@ -4,33 +4,69 @@
 
 @layer base {
   :root {
-    color-scheme: light dark;
+    color-scheme: light;
   }
 
   html, body, #app {
-    height: 100%;
+    min-height: 100%;
   }
 
   body {
+    background-color: #f6faff;
+    color: #141d23;
     font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    @apply bg-brand-500/30 text-ink-900 dark:text-ink-50;
+    @apply bg-secondary-container text-primary;
   }
 
   *:focus-visible {
-    @apply outline-none ring-2 ring-brand-500/60 ring-offset-2 ring-offset-white dark:ring-offset-ink-950 rounded-md;
+    @apply outline-none ring-2 ring-secondary/60 ring-offset-2 ring-offset-surface rounded-md;
   }
 }
 
 @layer components {
   .container-x {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-container-max px-margin-mobile md:px-gutter;
   }
 
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+  }
+
+  .natural-shadow {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
+  }
+
+  .project-card-shadow {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
+  }
+
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  /* Legacy components — kept for admin layer */
   .glass {
-    @apply bg-white/60 dark:bg-ink-900/60 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-glass;
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-glass;
   }
 
   .btn {
@@ -40,14 +76,14 @@
     @apply btn bg-brand-600 text-white hover:bg-brand-700 hover:shadow-glow;
   }
   .btn-ghost {
-    @apply btn bg-transparent text-ink-800 dark:text-ink-100 hover:bg-ink-100 dark:hover:bg-ink-800;
+    @apply btn bg-transparent text-ink-800 hover:bg-ink-100;
   }
   .btn-outline {
-    @apply btn border border-ink-200 dark:border-ink-700 text-ink-800 dark:text-ink-100 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400;
+    @apply btn border border-ink-200 text-ink-800 hover:border-brand-500 hover:text-brand-600;
   }
 
   .card {
-    @apply rounded-2xl border border-ink-100 dark:border-ink-800 bg-white dark:bg-ink-900 shadow-sm hover:shadow-lg transition-shadow duration-300;
+    @apply rounded-2xl border border-ink-100 bg-white shadow-sm hover:shadow-lg transition-shadow duration-300;
   }
 
   .gradient-text {
@@ -55,7 +91,7 @@
   }
 
   .skeleton {
-    @apply relative overflow-hidden bg-ink-100 dark:bg-ink-800 rounded-md;
+    @apply relative overflow-hidden bg-ink-100 rounded-md;
     background-image: linear-gradient(
       90deg,
       transparent 0%,

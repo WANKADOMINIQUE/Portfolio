@@ -12,6 +12,7 @@ const routes = [
       { path: '',           name: 'home',          component: () => import('@/views/public/HomeView.vue'),         meta: { title: 'Home' } },
       { path: 'projects',   name: 'projects',      component: () => import('@/views/public/ProjectsView.vue'),     meta: { title: 'Projects' } },
       { path: 'projects/:slug', name: 'project',   component: () => import('@/views/public/ProjectDetailView.vue'), meta: { title: 'Project' } },
+      { path: 'about',      name: 'about',         component: () => import('@/views/public/AboutView.vue'),        meta: { title: 'About' } },
       { path: 'blog',       name: 'blog',          component: () => import('@/views/public/BlogView.vue'),         meta: { title: 'Blog' } },
       { path: 'blog/:slug', name: 'blog-detail',   component: () => import('@/views/public/BlogDetailView.vue'),   meta: { title: 'Article' } },
       { path: 'services',   name: 'services',      component: () => import('@/views/public/ServicesView.vue'),     meta: { title: 'Services' } },
